@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="width_2">2dp</dimen>
+
+    <dimen name="elevation_10">10dp</dimen>
+    <dimen name="radius_10">10dp</dimen>
+    <dimen name="radius_15">15dp</dimen>
+
+    <dimen name="padding_15">15dp</dimen>
+
+    <dimen name="text_50">50sp</dimen>
+
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+</resources>
