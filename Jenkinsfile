@@ -27,13 +27,15 @@ pipeline {
                     }
                 }
                 stage("Build release ") {
-            steps("android") {
+            steps{
                 sh './gradlew assembleRelease'
             }
         }
       
         stage("Compile") {
-            archiveArtifacts artifacts: '**/*.apk', fingerprint: true, onlyIfSuccessful: true            
+            steps{
+                            archiveArtifacts artifacts: '**/*.apk', fingerprint: true, onlyIfSuccessful: true            
+            }
         }
 
             }
