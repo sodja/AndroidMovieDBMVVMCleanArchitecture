@@ -18,12 +18,7 @@ pipeline {
                 }
                 stage("Test") {
                     steps {
-                        sh './gradlew -x clean assembleDebug'
-                    }
-                    post {
-                        always {
-                            junit '**/build/test-results/**/TEST-*.xml'
-                        }
+                        sh './gradlew -x clean assembleDebugUnitTest'
                     }
                 }
                 stage("AndroidTest") {
