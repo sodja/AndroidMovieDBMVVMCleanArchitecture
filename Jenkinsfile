@@ -26,15 +26,13 @@ pipeline {
                         sh './gradlew assembleDebugAndroidTest'
                     }
                 }
-                stage('Build release ') {
+                stage("Build release") {
                     steps {
                         sh './gradlew assembleRelease'
                     }
                 }
-                stage('Compile') {
-                    steps{                    
+                stage("Compile") {
                         archiveArtifacts artifacts: '**/*.apk', fingerprint: true, onlyIfSuccessful: true            
-                    }
                 }
             }
         }
