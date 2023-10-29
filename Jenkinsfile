@@ -38,7 +38,7 @@ pipeline {
                 }
             }
         }
-
+  }
     post {
         failure {
             mail(to: 'bachosodja@gmail.com',
