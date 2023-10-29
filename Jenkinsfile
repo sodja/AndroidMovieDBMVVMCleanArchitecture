@@ -26,7 +26,7 @@ pipeline {
                         sh './gradlew assembleDebugAndroidTest'
                     }
                 }
-                stage("Build release") {
+                stage("BuildRelease") {
                     steps {
                         sh './gradlew assembleRelease'
                     }
