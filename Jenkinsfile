@@ -31,9 +31,6 @@ pipeline {
                         sh './gradlew assembleRelease'
                     }
                 }
-                stage('Compile') {
-                    archiveArtifacts artifacts: '**/*.apk', fingerprint: true, onlyIfSuccessful: true            
-                }
             }
         }
   }
