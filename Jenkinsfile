@@ -25,11 +25,14 @@ pipeline {
                     steps {
                         sh './gradlew assembleDebugAndroidTest'
                     }
-                    post {
-                        always {
-                            archiveArtifacts '*/build/reports/detekt/*.html'
-                        }
+                }
+                stage('Build release ') {
+                    steps {
+                        sh './gradlew assembleRelease'
                     }
+                }
+                stage('Compile') {
+                    archiveArtifacts artifacts: '**/*.apk', fingerprint: true, onlyIfSuccessful: true            
                 }
             }
         }
