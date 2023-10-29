@@ -18,7 +18,7 @@ pipeline {
                 }
                 stage("Test") {
                     steps {
-                        sh './gradlew -x clean assembleDebugUnitTest'
+                        sh './gradlew -x clean testDebugUnitTest'
                     }
                 }
                 stage("AndroidTest") {
@@ -26,11 +26,16 @@ pipeline {
                         sh './gradlew assembleDebugAndroidTest'
                     }
                 }
-                stage("BuildRelease") {
-                    steps {
-                        sh './gradlew assembleRelease'
-                    }
-                }
+                stage("Build release ") {
+            steps("android") {
+                sh './gradlew assembleRelease'
+            }
+        }
+      
+        stage("Compile") {
+            archiveArtifacts artifacts: '**/*.apk', fingerprint: true, onlyIfSuccessful: true            
+        }
+
             }
         }
   }
