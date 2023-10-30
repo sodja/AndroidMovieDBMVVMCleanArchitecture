@@ -6,7 +6,6 @@ pipeline {
         APP_MODULE_NAME = 'android-template'
         CHANGELOG_CMD = 'git log --date=format:"%Y-%m-%d" --pretty="format: * %s% b (%an, %cd)" | head -n 10 > commit-changelog.txt'
     }
-
     stages {
         stage("PR") {
             stages {
