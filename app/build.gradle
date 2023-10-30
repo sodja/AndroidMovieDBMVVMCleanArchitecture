@@ -82,6 +82,8 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
     implementation 'com.google.code.gson:gson:2.8.8'
+    
+    implementation 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.0.0.2929'
 
     // Room
     implementation "androidx.room:room-runtime:2.4.0"
@@ -96,4 +98,25 @@ dependencies {
     // Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:2.4.0"
 
+}
+
+apply plugin: "org.sonarqube"
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://192.168.1.7:9000"
+        property "sonar.projectName", "mondictionnaire"
+        property "sonar.projectKey", "mondictionnaire"
+        property "sonar.language", "java"
+        property "sonar.token", "squ_5eac7a3366e7bfeb09ab5335b45a392c5758f1e6"
+        property "sonar.tests", ["src/test/java"]
+        property "sonar.test.inclusions", "**/*Test*/**"
+        property "sonar.sources", "src/main/java"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.charSet", "UTF-8"
+        property "sonar.exclusions", '**/*Test*/**,' +
+                '*.json,' +
+                '**/*test*/**,' +
+                '**/.gradle/**,' +
+                '**/R.class'
+    }
 }
